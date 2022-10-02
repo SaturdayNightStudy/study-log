@@ -375,6 +375,103 @@ print(menu, type(menu))  # ('커피', '주스', '우유') <class 'tuple'>
 menu = set(menu)
 print(menu, type(menu))  # {'커피', '주스', '우유'} <class 'set'>
 
+# if
+weather = input("오늘 날씨는 어때요? : ")
+if weather == "비":
+    print("우산을 챙기세요")
+elif weather == "마스크":
+    print("마스크를 챙기세요")
+else:
+    print("준비물이 필요 없어요.")
+
+# for
+for waiting_no in [0, 1, 2, 3, 4]:
+    print("대기번호 : {0}".format(waiting_no))  # 0~4
+
+for waiting_no in range(1, 6):
+    print("대기번호 : {0}".format(waiting_no))  # 1~5
+
+# while
+customer = "토르"
+index = 5
+while index >= 1:
+    print("{0}님, 커피가 준비 되었습니다. {1}번 남았어요.".format(customer, index))
+    index -= 1
+    if index == 0:
+        print("커피는 폐기처분되었습니다.")
+
+
+# continue break
+absent = [2, 5]  # 결석
+no_book = [7]
+for student in range(1, 11):
+    if student in absent:
+        continue
+    elif student in no_book:
+        print("오늘 수업 여기까지. {0}는 교무실로 따라와".format(student))
+        break
+    print("{0}, 책을 읽어봐".format(student))
+
+# 한줄 for
+students = [1, 2, 3, 4, 5]
+print(students) # [1, 2, 3, 4, 5]
+students = [i+100 for i in students]
+print(students) # [101, 102, 103, 104, 105]
+
+# 함수
+def open_account():
+    print("새로운 계좌가 생성되었습니다.")
+
+
+open_account()
+
+# 전달값과 반환값
+
+
+def deposit(balance, money):  # 입금
+    print("입금이 완료되었습니다. 잔액은 {0} 원입니다.".format(balance + money))
+    return balance + money
+
+
+balance = 0
+balance = deposit(balance, 1000)
+print(balance)
+
+# 기본값
+
+
+def profile(name, age=17, main_lang="파이썬"):
+    print("이름 {}, 나이: {}, 사용언어:{}".format(name, age, main_lang))
+
+
+profile("유재석")   # 이름 유재석, 나이: 17, 사용언어:파이썬
+
+# 키워드
+profile(main_lang="자바", name="유재석")    # 이름 유재석, 나이: 17, 사용언어:자바
+
+# 가변인자
+
+
+def profile2(name, age, lang1, lang2, lang3, lang4, lang5):
+    print("이름 {}, 나이: {}".format(name, age), end=" ")
+    print(lang1, lang2, lang3, lang4, lang5)
+
+
+# 이름 유재석, 나이: 20 Python java C C++ C#
+profile2("유재석", 20, "Python", "java", "C", "C++", "C#")
+
+
+def profile3(name, age, *language):
+    print("이름 {}, 나이: {}".format(name, age), end=" ")
+    for lang in language:
+        print(lang, end=" ")
+    print()
+
+
+profile3("김태호", 25, "Kotilin", "java")   # 이름 김태호, 나이: 25 Kotilin java
+
+
+
 '''
 
 # === Test ===
